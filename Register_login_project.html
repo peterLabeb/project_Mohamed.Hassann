@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Viva.dir</title>
+    <link rel="stylesheet" href="Style_login_project.css">
+    <style>
+        .gender-field {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .gender-field label {
+            margin-right: 15px;
+        }
+        .gender-field input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- الشريط العلوي -->
+  <header>
+    <div class="navbar">
+      <!-- قائمة الروابط -->
+      <ul class="nav-links">
+        <li><a href="Home_project.html">Home</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">News</button>
+          <div class="dropdown-content">
+            <a href="Sale_project.html">SALE</a>
+            <a href="#">MEN</a>
+            <a href="#">WOMEN</a>
+            <a href="#">KIDS</a>
+            <a href="#">SPORT</a>
+            <a href="#">LIFESTYLE</a>
+          </div>
+        </li> 
+        <li class="cart">
+          <a href="addcard_project.html">
+            <span class="cart-icon"></span> 
+            <span class="badge" id="cart-count">0</span>
+          </a>
+        </li>
+        
+          <li class="liked">
+            <a href="like_project.html" class="like_btn">
+              <span class="liked-icon">&#10084;</span>
+            </a>
+          </button>
+        </li>
+      </ul>
+
+      <div class="logo">Viva.dir</div>
+
+      <!-- مربع البحث وزر تسجيل الدخول -->
+      <div class="right-section">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <a href="Login_project.html" class="login-btn">Login</a>
+      </div>
+    </div>
+  </header>
+
+
+    <div class="wrapper">
+        <form action="#">
+        <h2>Register</h2>
+
+        <!-- First Name -->
+        <div class="input-field">
+            <input type="text" id="firstName" placeholder="Enter your first name" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-field">
+            <input type="text" id="lastName" placeholder="Enter your last name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="input-field">
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="input-field">
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        </div>
+
+        <!-- Password -->
+        <div class="input-field">
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="input-field">
+            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+        </div>
+
+        <!-- Gender -->
+        <div class="gender-field">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label>
+        </div>
+
+        <!-- Register Button -->
+        <button type="button" onclick="register()">Register</button>
+
+        <script>
+            function register() {
+                // جلب القيم المدخلة من حقول الإدخال
+                var firstName = document.getElementById("firstName").value;
+                var lastName = document.getElementById("lastName").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+                var gender = document.querySelector('input[name="gender"]:checked');
+
+                // التحقق من تطابق كلمة المرور
+                if (password !== confirmPassword) {
+                    alert("Password mismatch. Try again.");
+                    return;
+                }
+
+                // التحقق من أن جميع الحقول مكتملة
+                if (!firstName || !lastName || !email || !phone || !gender || !password) {
+                    alert("Please fill out all data");
+                    return;
+                }
+
+                // تخزين البيانات في localStorage
+                localStorage.setItem("userFirstName", firstName);
+                localStorage.setItem("userLastName", lastName);
+                localStorage.setItem("userEmail", email);
+                localStorage.setItem("userPhone", phone);
+                localStorage.setItem("userGender", gender.value);
+                localStorage.setItem("userPassword", password);
+
+                alert("Active registration completed..");
+
+                // إعادة توجيه المستخدم إلى صفحة الـ Login
+                window.location.href = "Login_project.html"; // تأكد من أن الرابط صحيح لصفحة الـ Login
+            }
+        </script>
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        // Scroll down
+        header.style.top = "0"; // إخفاء الشريط العلوي
+      } else {
+        // Scroll up
+        header.style.top = "-80px";
+      }
+      lastScrollTop = scrollTop;
+    });
+  </script>
+
+        <div class="register">
+            <p>
+                Already have an account?
+                <a href="Login_project.html">Login</a>
+            </p>
+        </div>
+       </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function() {
+                document.querySelector(".wrapper").classList.add("show");
+            }, 100);  // تأخير بسيط قبل أن يظهر العنصر
+        });
+    </script>
+</body>
+</html>

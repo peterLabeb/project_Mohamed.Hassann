@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px;
+  }
+  
+  
+  
+
+
+
+  footer.footer {
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* لون النص */
+    width: 100%;
+    margin-top: 8%;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap; /* تكديس الأقسام إذا ضاقت الشاشة */
+    justify-content: space-between; /* توزيع الأقسام بالتساوي */
+    max-width: 1300px;
+    margin: 0 auto; /* محاذاة في المنتصف */
+  }
+  
+  .footer-section {
+    flex: 1 1 calc(25% - 20px); /* توزيع الأقسام بشكل متساوٍ */
+    min-width: 200px; /* عرض الحد الأدنى */
+    margin: 30px;
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 0px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #d38b17;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #d38b17; /* تأثير عند التمرير */
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #555;
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  /* تصميم استجابة للشاشات الصغيرة */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column; /* ترتيب الأقسام بشكل عمودي */
+      align-items: center;
+    }
+  
+    .footer-section {
+      text-align: center; /* توسيط النص */
+    }
+  }
+
+
+
+
+
+  
+  
+  
+  
+  
+  header {
+    background-color: #e8e8e8; /* color navigation bar */
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;     /* شريط التنقل ثابت */
+    top: 0;        /* always top */
+    z-index: 1000;   /* always top component */
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    font-size: 18px;
+    margin: 0 ;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  .nav-links a, .dropbtn {
+    display: inline-block;
+    padding: 5px 20px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover, .dropdown:hover .dropbtn {
+    background-color: #d38b17;     /* effect button */
+  }
+  
+  /* القائمة المنسدلة */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #000000;
+    cursor: pointer;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e8e8e8;      /* --------*/
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: rgb(0, 0, 0);
+    padding: 13px 35px;
+    text-decoration: none;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #d38b17;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    color: #d38b17;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    flex-grow: 5;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* زر البحث وزر تسجيل الدخول */
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar {
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 150px;
+    transition: width 0.3s ease;
+    margin-right: 15px;
+  }
+  
+  .search-bar:focus {
+    width: 220px;
+  }
+  
+  .login-btn {
+    background-color: #d38b17;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #b36f14;
+  }
+  
+  /* أيقونة عربة التسوق */
+  .cart {
+    position: relative;
+    font-size: medium;
+    
+  }
+  
+  .cart-icon {
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    background: url('https://cdn-icons-png.flaticon.com/512/3144/3144456.png') no-repeat center center;
+    background-size: contain;
+    filter: brightness(1.5) invert(0); /* يجعل الأيقونة بيضاء */
+  }
+  
+  .cart .badge {
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sale-badge {
+    position: absolute;
+    top: 35px;
+    left: 13px;
+    background-color: #28a745;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    
+  }
+  
+  /* تحسين أيقونة Liked */
+  .liked-icon {
+    display: inline-block;
+    font-size: large;
+    width: 20px;
+    height: 20px;
+    color: white;
+    transition: color 0.5s ease, transform 0.5s ease;
+  }
+  
+  .liked-icon:hover {
+    color: #ea0606;
+    transform: scale(1.5); /* تكبير عند التحويم */
+  }
+  .liked1-icon:hover {
+    color: #ea0606;
+    transform: scale(1.5); /* تكبير عند التحويم */
+  }
+  /* تصميم زر القلب */
+  .liked-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 19px;
+    text-decoration: none;
+  }
+  
+  .liked-btn.active .liked-icon {
+    color: #d38b17;
+    transform: scale(1.5);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .center-text {
+    line-height: 1.5;
+  }
+  
+  .collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  .center-text h1 {
+    color: #111;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: oblique;
+    letter-spacing: 5px;
+  }
+  
+  .center-text p {
+    color: #777f86f2;
+    font-style: oblique;
+    font-size: 20px;
+  }
+  
+  .card {
+    transition: transform 0.6s ease;
+  }
+  
+  .card:hover {
+    transform: scale(0.9);
+  }
+  
+  .row {
+    position: relative;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    background-color: rgb(237, 240, 241);
+    border-radius: 30px;
+  }
+  
+  .row img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .card-info {
+    padding: 15px;
+    background-color: #fff;
+  }
+  
+  .ratting i {
+    color: #ff9900;
+  }
+  
+  .price h4 {
+    color: #333;
+  }
+  
+  .price p {
+    color: #777;
+  }
+  /* زر القلب أعلى يسار */
+  .top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #fff;
+    border: 2px solid #d31717;
+    cursor: pointer;
+    font-size: 1.5rem;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .top-left:hover {
+    background-color: #d31717;
+    transform: scale(1.1);
+  }
+  
+  .top-left.active {
+    background-color: #d31717; /* اللون الأحمر عند التفعيل */
+  }
+  
+  .liked-icon {
+    color: #000000;
+    font-size: 1.2rem;
+  }
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('image1.jpg');
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 0 10px;
+    color: #a50f0f;
+    font-family: Arial, sans-serif;
+  padding-top: 70px; /* تجنب تغطيه المحتوي بالشريط */
+}
+
+
+header {
+  background-color: #e8e8e8; /* color navigation bar */
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;     /* شريط التنقل ثابت */
+  top: 0;        /* always top */
+  z-index: 1000;   /* always top component */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  font-size: 18px;
+  margin: 0 ;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+  position: relative;
+}
+
+.nav-links a, .dropbtn {
+  display: inline-block;
+  padding: 5px 20px;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover, .dropdown:hover .dropbtn {
+  background-color: #d38b17;     /* effect button */
+}
+
+/* القائمة المنسدلة */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #000000;
+  cursor: pointer;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e8e8e8;      /* --------*/
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: rgb(0, 0, 0);
+  padding: 13px 35px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;
+}
+
+.dropdown-content a:hover {
+  background-color: #d38b17;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #d38b17;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: center;
+  flex-grow: 5;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* زر البحث وزر تسجيل الدخول */
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 150px;
+  transition: width 0.3s ease;
+  margin-right: 15px;
+}
+
+.search-bar:focus {
+  width: 220px;
+}
+
+.login-btn {
+  background-color: #d38b17;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #b36f14;
+}
+
+/* أيقونة عربة التسوق */
+.cart {
+  position: relative;
+  font-size: medium;
+  
+}
+
+.cart-icon {
+  display: inline-block;
+  width: 20px;
+  height: 30px;
+  background: url('https://cdn-icons-png.flaticon.com/512/3144/3144456.png') no-repeat center center;
+  background-size: contain;
+  filter: brightness(1.5) invert(0); /* يجعل الأيقونة بيضاء */
+}
+
+.cart .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* تحسين أيقونة Liked */
+.liked-icon {
+  display: inline-block;
+  font-size: large;
+  width: 15px;
+  height: 10px;
+  color: rgb(0, 0, 0);
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.liked-icon:hover {
+  color: #d31717;
+  transform: scale(1.2); /* تكبير عند التحويم */
+}
+
+/* تصميم زر القلب */
+.liked-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 19px;
+  text-decoration: none;
+}
+
+.liked-btn.active .liked-icon {
+  color: #d38b17;
+  transform: scale(1.2);
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    background-size: cover;
+    z-index: -1;
+}  
+
+.wrapper {       
+    width: 450px;
+    border-radius: 30px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #ffffff;
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wrapper.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {    
+    font-size: 2.5rem;  
+    margin-bottom: 20px;   
+    color: #ffffff;
+}
+
+.input-field {      
+    position: relative;
+    color: #ffffff;
+    font-size: 10px;
+    width: 400px;  
+    border-radius:10px;
+    padding: 1px;    
+    text-align: left;
+    border: 1px solid #ffffff;   
+    backdrop-filter: blur(60px);
+    margin-bottom: 20px;         
+}
+
+.input-field input {
+    width: 100%;
+    height: 30px;
+    color: #ffffff;  
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+    font-size: 0.8rem;
+    outline: none;
+    top: 10px;
+    transform: translateY(-120%);
+    border: 2px solid #d38b17;
+}
+
+.forget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0 35px 40;
+    color: #ffffff;
+}
+
+#remember {
+    accent-color: #ffffff;
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+}
+
+.forget label p {
+    margin-left: 8px;
+}
+
+.wrapper a {
+    color: #ffffff; 
+    text-decoration: underline;
+}
+
+button {
+    background: #d38b17;  
+    color: #000000;     
+    font-weight: 600;
+    border: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #c17a12;
+    transform: scale(1.05);
+}
+
+.register {
+    text-align: center;
+    margin-top: 30px;
+    color: #b3aeae;  
+}
+
+.gender-field {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.gender-field label {
+    color: white;
+    margin-right: 15px;
+}
+
+.gender-field input {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) { /* small screen*/
+    .navbar {
+      flex-direction: column;
+    }
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      margin-top: 10px;
+    }
+    .logo {
+      order: -1;
+      margin-bottom: 10px;
+    }
+    .search-container {
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 769px) {    /* big screen*/
+    .nav-links {
+      flex-grow: 0.7;
+      justify-content: flex-start;
+    }
+    .logo {
+      text-align: center
+    }
+  }

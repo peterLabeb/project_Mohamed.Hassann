@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px; /* تجنب تغطيه المحتوي بالشريط */
+  }
+  
+  header {
+    background-color: #e8e8e8; /* color navigation bar */
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;     /* شريط التنقل ثابت */
+    top: 0;        /* always top */
+    z-index: 1000;   /* always top component */
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    font-size: 18px;
+    margin: 0 ;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  .nav-links a, .dropbtn {
+    display: inline-block;
+    padding: 5px 20px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover, .dropdown:hover .dropbtn {
+    background-color: #d38b17;     /* effect button */
+  }
+  
+  /* القائمة المنسدلة */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #000000;
+    cursor: pointer;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e8e8e8;      /* --------*/
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: rgb(0, 0, 0);
+    padding: 13px 35px;
+    text-decoration: none;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #d38b17;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    color: #d38b17;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    flex-grow: 5;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* زر البحث وزر تسجيل الدخول */
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar {
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 150px;
+    transition: width 0.3s ease;
+    margin-right: 15px;
+  }
+  
+  .search-bar:focus {
+    width: 220px;
+  }
+  
+  .login-btn {
+    background-color: #d38b17;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #b36f14;
+  }
+  
+  /* أيقونة عربة التسوق */
+  .cart {
+    position: relative;
+    font-size: medium;
+    
+  }
+  
+  .cart-icon {
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    background: url('https://cdn-icons-png.flaticon.com/512/3144/3144456.png') no-repeat center center;
+    background-size: contain;
+    filter: brightness(1.5) invert(0); /* يجعل الأيقونة بيضاء */
+  }
+  
+  .cart .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* تحسين أيقونة Liked */
+  .liked-icon {
+    display: inline-block;
+    font-size: large;
+    width: 15px;
+    height: 10px;
+    color: white;
+    transition: color 0.5s ease, transform 0.5s ease;
+  }
+  
+  .liked-icon:hover {
+    color: #d31717;
+    transform: scale(1.2); /* تكبير عند التحويم */
+  }
+  
+  /* تصميم زر القلب */
+  .liked-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 19px;
+    text-decoration: none;
+  }
+  
+  .liked-btn.active .liked-icon {
+    color: #d38b17;
+    transform: scale(1.2);
+  }
+  
+  @media (max-width: 768px) { /* small screen */
+    .navbar {
+      flex-direction: column;
+    }
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      margin-top: 10px;
+    }
+    .logo {
+      order: -1;
+      margin-bottom: 10px;
+    }
+    .search-container {
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 769px) { /* big screen */
+    .nav-links {
+      flex-grow: 0.7;
+      justify-content: flex-start;
+    }
+    .logo {
+      text-align: center;
+    }
+  }

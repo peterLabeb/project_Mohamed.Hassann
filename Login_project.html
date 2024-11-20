@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Viva.dir</title>
+    <link rel="stylesheet" href="Style_login_project.css">
+</head>
+
+<body>
+
+
+  
+
+    <!-- الشريط العلوي -->
+  <header>
+    <div class="navbar">
+      <!-- قائمة الروابط -->
+      <ul class="nav-links">
+        <li><a href="Home_project.html">Home</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">News</button>
+          <div class="dropdown-content">
+            <a href="Sale_project.html">SALE</a>
+            <a href="#">MEN</a>
+            <a href="#">WOMEN</a>
+            <a href="#">KIDS</a>
+            <a href="#">SPORT</a>
+            <a href="#">LIFESTYLE</a>
+          </div>
+        </li> 
+        <li class="cart">
+          <a href="addcard_project.html">
+            <span class="cart-icon"></span> 
+            <span class="badge" id="cart-count">0</span>
+          </a>
+        </li>
+        
+          <li class="liked">
+            <a href="like_project.html" class="like_btn">
+              <span class="liked-icon">&#10084;</span>
+            </a>
+          </button>
+        </li>
+      </ul>
+
+      <div class="logo">Viva.dir</div>
+
+      <!-- مربع البحث وزر تسجيل الدخول -->
+      <div class="right-section">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <a href="Login_project.html" class="login-btn">Login</a>
+      </div>
+    </div>
+  </header>
+
+
+
+    <div class="wrapper">
+        <form action="#">
+        <h2>Login</h2>
+
+        <!-- Email -->
+        <div class="input-field">
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <!-- Password -->
+        <div class="input-field">
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+
+        <!-- Login Button -->
+        <button type="button" onclick="login()">Login</button>
+
+        <script>
+            function login() {
+                // جلب القيم المدخلة من حقول الإدخال
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+
+                // التحقق من أن الحقول غير فارغة
+                if (!email || !password) {
+                    alert("Not found..Please email and password.");
+                    return;
+                }
+
+                // جلب البيانات المخزنة في localStorage
+                var storedEmail = localStorage.getItem("userEmail");
+                var storedPassword = localStorage.getItem("userPassword");
+
+                // التحقق من تطابق البيانات المدخلة مع البيانات المخزنة
+                if (email === storedEmail && password === storedPassword) {
+                    alert("Done..Welcome By Viva.dir");
+                    window.location.href = "Home_project.html"; // إعادة توجيه إلى الصفحة الرئيسية بعد تسجيل الدخول
+                } else {
+                    alert("Incorrect email or password. Try again login.");
+                }
+            }
+        </script>
+
+        <div class="forget">
+            <label> 
+                <input type="checkbox" id="rememberMe"> Remember Me
+            </label>
+            <a href="#">Forgot password?</a>
+        </div>
+
+        <div class="register">
+            <p>
+                Don't have an account?
+                <a href="Register_login_project.html">Register</a>
+            </p>
+        </div>
+       </form>
+    </div>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function() {
+                document.querySelector(".wrapper").classList.add("show");
+            }, 100); // تأخير بسيط قبل أن يظهر العنصر
+        });
+    </script>
+
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        // Scroll down
+        header.style.top = "0"; // إخفاء الشريط العلوي
+      } else {
+        // Scroll up
+        header.style.top = "-80px";
+      }
+      lastScrollTop = scrollTop;
+    });
+  </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
